@@ -5,12 +5,13 @@ using UnityEngine;
 public class LaundryHp : MonoBehaviour
 {
     private float _hp = 1;
+    [SerializeField]
     private SpriteRenderer _laundryRen;
 
     // Start is called before the first frame update
     void Start()
     {
-        _laundryRen.GetComponent<SpriteRenderer>();
+        //_laundryRen.GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
