@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 285338016781597700}
   - component: {fileID: 5006819497235179221}
   - component: {fileID: 5331668783117217240}
-  - component: {fileID: 418451791750023438}
   m_Layer: 0
   m_Name: Item(Shrink)
   m_TagString: Untagged
@@ -139,15 +138,3 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   effectType: 1
   effectDuration: 10
---- !u!114 &418451791750023438
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7349211282149074410}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3c839633de191b946a94af0408b9730e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

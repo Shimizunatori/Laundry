@@ -1,49 +1,64 @@
-using System;
-using System.Collections;
-using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+using TMPro;
+using System.Collections;
 
 public class TimerController : MonoBehaviour
 {
-    public float initialTimeInSeconds = 300f; // 5分の初期時間（秒）
-    private float currentTimeInSeconds;
-    private TextMeshProUGUI timerText;
+    public float countdownTime = 10f; // カウントダウンの秒数
+    public Text timerText; // タイマー表示用
+    public Text messageText; // 「終了！」表示用
+    public Image fadeImage; // 暗転用のUI Image
+    public string nextSceneName = "NextScene"; // 遷移先のシーン名
 
-    private Coroutine _startTimer;
-    //public bool isTimerRunning = true;
+    private bool isEnding = false;
 
-    private void Start()
+    void Start()
     {
-        // TextMeshProUGUIコンポーネントを取得
-        timerText = GetComponent<TextMeshProUGUI>();
-
-        // 初期時間を設定
-        currentTimeInSeconds = initialTimeInSeconds;
-
-        // タイマーを開始
-        _startTimer = StartCoroutine(StartTimer());
+        messageText.text = "";
+        fadeImage.color = new Color(0, 0, 0, 0); // 初期は透明
+        StartCoroutine(CountdownCoroutine());
     }
 
-    private IEnumerator StartTimer()
+    IEnumerator CountdownCoroutine()
     {
-        while (currentTimeInSeconds > 0)
+        float timeLeft = countdownTime;
+
+        while (timeLeft > 0)
         {
-            // タイマーの表示を更新
-            TimeSpan timeSpan = TimeSpan.FromSeconds(currentTimeInSeconds);
-            timerText.text = string.Format("{0:D2}:{1:D2}", timeSpan.Minutes, timeSpan.Seconds);
-
-            // 1秒待機
-            yield return new WaitForSeconds(1f);
-
-            // 残り時間を減少させる
-            currentTimeInSeconds -= 1f;
-            //Debug.Log(currentTimeInSeconds);
+            timerText.text = Mathf.CeilToInt(timeLeft).ToString();
+            timeLeft -= Time.deltaTime;
+            yield return null;
         }
+
+        timerText.text = "0";
+        messageText.text = "終了！";
+        isEnding = true;
+
+        yield return new WaitForSeconds(1.5f); // 終了！表示の時間
+
+        // フェードアウト
+        yield return StartCoroutine(FadeToBlack());
+
+        // シーン遷移
+        SceneManager.LoadScene(nextSceneName);
     }
 
-    public void TimerStop()
+    IEnumerator FadeToBlack()
     {
-        StopCoroutine(_startTimer);
-    }
+        float duration = 1.5f;
+        float time = 0;
+        Color color = fadeImage.color;
 
+        while (time < duration)
+        {
+            float alpha = Mathf.Lerp(0, 1, time / duration);
+            fadeImage.color = new Color(0, 0, 0, alpha);
+            time += Time.deltaTime;
+            yield return null;
+        }
+
+        fadeImage.color = new Color(0, 0, 0, 1);
+    }
 }

@@ -5,19 +5,12 @@ public class PlayerScale : MonoBehaviour
 {
     private Coroutine activeCoroutine;
     private Vector3 originalScale;
-    private Vector2 originalColliderSize;
 
-    private BoxCollider2D boxCollider;
     private enum ScaleState { Normal, Enlarged, Shrunk }
-    private ScaleState currentState = ScaleState.Normal;
 
     public float effectDuration = 10f;
     public float enlargedScale = 2f;
     public float shrunkScale = 0.5f;
-
-    private SpriteRenderer spriteRenderer;
-    private Color originalColor;
-
 
     private void Start()
     {

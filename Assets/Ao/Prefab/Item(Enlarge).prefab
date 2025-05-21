@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 7925929880318226228}
   - component: {fileID: 8384599679701997968}
   - component: {fileID: 6920533967780055824}
-  - component: {fileID: 8588792365378886726}
   m_Layer: 0
   m_Name: Item(Enlarge)
   m_TagString: Untagged
@@ -139,15 +138,3 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   effectType: 0
   effectDuration: 10
---- !u!114 &8588792365378886726
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7304115309413880470}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3c839633de191b946a94af0408b9730e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
