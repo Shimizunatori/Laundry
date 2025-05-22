@@ -7,6 +7,8 @@ public class LaundryHp : MonoBehaviour
     private float _hp = 1;
     [SerializeField]
     private SpriteRenderer _laundryRen;
+    [SerializeField]
+    private TimerController _point;
 
     // Start is called before the first frame update
     void Start()
@@ -26,6 +28,7 @@ public class LaundryHp : MonoBehaviour
         {
             _hp--;
             _laundryRen.color = Color.HSVToRGB(114, 58, 0);
+            _point.GetComponent<TimerController>()._score += 1;
         }
     }
 }

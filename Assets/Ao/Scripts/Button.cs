@@ -7,7 +7,7 @@ public class Button : MonoBehaviour
 {
     public void OnButtonClickStart()
     {
-        SceneManager.LoadScene("otamescene");
+        SceneManager.LoadScene("Main");
     }
 
     public void OnButtonClickTitleBack()

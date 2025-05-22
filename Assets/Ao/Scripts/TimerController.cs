@@ -11,11 +11,16 @@ public class TimerController : MonoBehaviour
     public Text messageText; // 「終了！」表示用
     public Image fadeImage; // 暗転用のUI Image
     public string nextSceneName = "NextScene"; // 遷移先のシーン名
+    public int _score;
+
+    [SerializeField] private GameObject _scorePanel;
 
     private bool isEnding = false;
 
     void Start()
     {
+        _score = 0;
+        _scorePanel.SetActive(false);
         messageText.text = "";
         fadeImage.color = new Color(0, 0, 0, 0); // 初期は透明
         StartCoroutine(CountdownCoroutine());
@@ -41,8 +46,12 @@ public class TimerController : MonoBehaviour
         // フェードアウト
         yield return StartCoroutine(FadeToBlack());
 
+        _scorePanel.SetActive(true);
+
+        Time.timeScale = 0;
+
         // シーン遷移
-        SceneManager.LoadScene(nextSceneName);
+        //SceneManager.LoadScene(nextSceneName);
     }
 
     IEnumerator FadeToBlack()
