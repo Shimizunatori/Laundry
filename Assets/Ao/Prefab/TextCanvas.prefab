@@ -276,11 +276,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d23a6ab92bdfa8944b16c34c27174d02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  countdownTime: 10
+  countdownTime: 120
   timerText: {fileID: 7834293769419445887}
   messageText: {fileID: 7834293768360466945}
   fadeImage: {fileID: 7834293769758265838}
   nextSceneName: Title
+  _score: 0
+  _scorePanel: {fileID: 0}
 --- !u!1 &7834293769758265836
 GameObject:
   m_ObjectHideFlags: 0
