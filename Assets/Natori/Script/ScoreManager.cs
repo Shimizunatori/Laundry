@@ -17,7 +17,7 @@ public class ScoreManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        StartCoroutine(Duration());
+        Score();
     }
 
     private void Score()
@@ -42,11 +42,5 @@ public class ScoreManager : MonoBehaviour
         {
             _text.text = "D";
         }
-    }
-
-    private IEnumerator Duration()
-    {
-        yield return new WaitForSeconds(1.5f);
-        Score();
     }
 }
