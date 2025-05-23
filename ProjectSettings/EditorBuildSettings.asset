@@ -11,7 +11,7 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Ao/Scene/otamescene.unity
     guid: e54ff587b334708418e6fb67f1d73fc6
-  - enabled: 1
+  - enabled: 0
     path: Assets/Ao/Scene/Score.unity
     guid: 6149a266ea014c94ebac47c0260c8aef
   - enabled: 1
