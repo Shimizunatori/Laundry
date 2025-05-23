@@ -14,12 +14,15 @@ public class TimerController : MonoBehaviour
     public int _score;
 
     [SerializeField] private GameObject _scorePanel;
+    [SerializeField] private GameObject _backPanel;
 
     private bool isEnding = false;
 
     void Start()
     {
+        Time.timeScale = 1;
         _score = 0;
+        _backPanel.SetActive(false);
         _scorePanel.SetActive(false);
         messageText.text = "";
         fadeImage.color = new Color(0, 0, 0, 0); // 初期は透明
@@ -46,6 +49,10 @@ public class TimerController : MonoBehaviour
         // フェードアウト
         yield return StartCoroutine(FadeToBlack());
 
+        fadeImage.color = new Color(0, 0, 0, 0);
+        timerText.text = "";
+        messageText.text = "";
+        _backPanel.SetActive(true);
         _scorePanel.SetActive(true);
 
         Time.timeScale = 0;

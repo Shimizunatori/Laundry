@@ -62,7 +62,7 @@ public class HorkMove : MonoBehaviour
 
     private IEnumerator Attack()
     {
-        int _randomBullet = Random.Range(0, 20);
+        int _randomBullet = Random.Range(0, 21);
         if (_randomBullet <= 18)
         {
             var _bulletNum = 0;
